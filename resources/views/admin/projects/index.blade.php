@@ -23,14 +23,19 @@
                         <td>{{ $project->github_link }}</td>
                         <td class="">
                             <a class="me-2" href="#">edit</a>
-                            <a class="text-danger" href="#">delete</a>
+                            <form action="{{ route('admin.projects.destroy', $project['id']) }}" method="POST">
+                                @csrf
+                                @method("delete")
+
+                                <button class="btn btn-danger d-inline">delete</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
         <div class="w-100 text-center">
-            <a class="btn btn-success " href="{{Route('admin.projects.create')}}">new Project</a>
+            <a class="btn btn-success " href="{{ Route('admin.projects.create') }}">new Project</a>
         </div>
     </div>
 @endsection

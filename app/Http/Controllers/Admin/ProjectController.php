@@ -40,7 +40,7 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $data= $request->all();
-        
+
         $project = Project::create([
             ...$data,
             "user_id" => Auth::id()
@@ -91,6 +91,9 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $project = Project::findOrFail($id);
+        $project->delete();
+
+        return redirect()->route("admin.projects.index");
     }
 }
