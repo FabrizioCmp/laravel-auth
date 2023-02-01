@@ -30,7 +30,7 @@
             </tbody>
         </table>
         <div class="w-100 text-center">
-            <a class="btn btn-success " href="#">new Project</a>
+            <a class="btn btn-success " href="{{Route('admin.projects.create')}}">new Project</a>
         </div>
     </div>
 @endsection
