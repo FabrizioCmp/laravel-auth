@@ -15,6 +15,8 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    <h5>Go to the Home page or 
+                        <a href="{{Route('admin.projects.index')}}">Here</a> to manage your projects  </h5>
                 </div>
             </div>
         </div>
