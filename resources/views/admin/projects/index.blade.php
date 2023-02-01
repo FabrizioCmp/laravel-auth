@@ -17,12 +17,12 @@
             <tbody>
                 @foreach ($projects as $project)
                     <tr>
-                        <td>{{ $project->id }}</td>
-                        <td>{{ $project->name }}</td>
-                        <td>{{ $project->cover_img }}</td>
-                        <td>{{ $project->github_link }}</td>
+                        <td class="align-middle">{{ $project->id }}</td>
+                        <td class="align-middle">{{ $project->name }}</td>
+                        <td class="align-middle">{{ $project->cover_img }}</td>
+                        <td class="align-middle">{{ $project->github_link }}</td>
                         <td class="">
-                            <a class="me-2" href="#">edit</a>
+                            <a class="btn btn-primary mb-1" href="#">edit</a>
                             <form action="{{ route('admin.projects.destroy', $project['id']) }}" method="POST">
                                 @csrf
                                 @method("delete")
