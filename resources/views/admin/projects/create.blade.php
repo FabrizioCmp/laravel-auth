@@ -2,8 +2,9 @@
 
 @section('content')
     <div class="container">
-        <form class="mt-3" action="admin.project.store" method="POST">
+        <form class="mt-3" action="{{Route("admin.projects.store")}}" method="POST">
             @csrf
+
             <div class="mb-3">
                 <label class="form-label">Project name</label>
                 <input type="text" name="name" class="form-control w-25">
