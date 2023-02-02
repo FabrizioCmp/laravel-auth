@@ -68,7 +68,13 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
-        //
+        $project = Project::findOrFail($id);
+
+        if(!$project){
+            abort(404, " Project not found");
+        }
+
+        return view('admin.projects.edit', compact("project"));
     }
 
     /**
@@ -80,7 +86,12 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $project = Project::findOrFail($id);
+        $project->update($data);
+
+        return redirect()->route('admin.projects.index');
     }
 
     /**
