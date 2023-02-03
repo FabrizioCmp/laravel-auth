@@ -119,6 +119,10 @@ class ProjectController extends Controller
         $project = Project::findOrFail($id);
         $project->delete();
 
+        if ($project->cover_img) {
+            Storage::delete($project->cover_img);
+        }
+
         return redirect()->route("admin.projects.index");
     }
 }
