@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <form class="mt-3" action="{{Route("admin.projects.store")}}" method="POST">
+        <form class="mt-3" action="{{Route("admin.projects.store")}}" method="POST" enctype="multipart/form-data" >
             @csrf
 
             <div class="mb-3">
@@ -11,8 +11,8 @@
             </div>
 
             <div class="mb-3" >
-                <label for="form-label">Cover link</label>
-                <input type="text" name="cover_img" class="form-control w-50">
+                <label for="form-label">Cover</label>
+                <input type="file" name="cover_img" class="form-control w-50">
             </div>
             
             <div class="mb-3" >

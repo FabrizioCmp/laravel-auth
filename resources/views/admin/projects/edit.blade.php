@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <form class="mt-3" action="{{Route("admin.projects.update", $project->id), $project->id}}" method="POST">
+        <form class="mt-3" action="{{Route("admin.projects.update", $project->id), $project->id}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('put')
 
@@ -12,8 +12,8 @@
             </div>
 
             <div class="mb-3" >
-                <label for="form-label">Cover link</label>
-                <input type="text" name="cover_img" class="form-control w-50" value="{{$project->cover_img}}">
+                <label for="form-label">Cover</label>
+                <input type="file" name="cover_img" class="form-control w-50">
             </div>
             
             <div class="mb-3" >

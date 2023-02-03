@@ -16,10 +16,14 @@
             </thead>
             <tbody>
                 @foreach ($projects as $project)
-                    <tr>
+                    <tr class="">
                         <td class="align-middle">{{ $project->id }}</td>
                         <td class="align-middle">{{ $project->name }}</td>
-                        <td class="align-middle">{{ $project->cover_img }}</td>
+                        <td class="align-middle" class="w-50">
+                            @if ($project->cover_img)
+                               <img src="{{asset('storage/' . $project->cover_img)}}" alt="" class="w-25 "> 
+                            @endif
+                        </td>
                         <td class="align-middle">{{ $project->github_link }}</td>
                         <td class="">
                             <a class="btn btn-primary mb-1" href="{{route('admin.projects.edit', $project->id)}}">edit</a>
