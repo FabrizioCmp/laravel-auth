@@ -16,7 +16,7 @@
             </thead>
             <tbody>
                 @foreach ($projects as $project)
-                    <tr class="">
+                    <tr>
                         <td class="align-middle">{{ $project->id }}</td>
                         <td class="align-middle">{{ $project->name }}</td>
                         <td class="align-middle" class="w-50">
