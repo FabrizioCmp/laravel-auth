@@ -21,18 +21,22 @@
                         <td class="align-middle">{{ $project->name }}</td>
                         <td class="align-middle" class="w-50">
                             @if ($project->cover_img)
-                               <img src="{{asset('storage/' . $project->cover_img)}}" alt="" class="w-25 "> 
+                                <img src="{{ asset('storage/' . $project->cover_img) }}" alt="" class="w-25 ">
                             @endif
                         </td>
                         <td class="align-middle">{{ $project->github_link }}</td>
-                        <td class="">
-                            <a class="btn btn-primary mb-1" href="{{route('admin.projects.edit', $project->id)}}">edit</a>
-                            <form action="{{ route('admin.projects.destroy', $project['id']) }}" method="POST">
-                                @csrf
-                                @method("delete")
+                        <td class="h-100">
+                            <div class="my-5 d-flex  align-items-center ">
+                                <a class="btn btn-primary me-2 align-middle d-inline-block"
+                                    href="{{ route('admin.projects.edit', $project->id) }}">edit</a>
+                                <form action="{{ route('admin.projects.destroy', $project['id']) }}" method="POST">
+                                    @csrf
+                                    @method('delete')
 
-                                <button class="btn btn-danger d-inline">delete</button>
-                            </form>
+                                    <button class="btn btn-danger d-inline me-2">delete</button>
+                                </form>
+                                <a class="btn btn-secondary" href="{{ route('admin.projects.show', $project['id']) }}">show</a>
+                            </div>
                         </td>
                     </tr>
                 @endforeach
